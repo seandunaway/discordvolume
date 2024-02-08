@@ -15,7 +15,7 @@ let json = await response.json()
 console.log(json)
 let result = json.chart.result[0]
 
-let spoo = {}
+let spoo = []
 for (let i = 0; i < result.timestamp.length; i++) {
 	let date = new Date(result.timestamp[i] * 1000)
 	let date_string = date.toLocaleDateString()
@@ -23,7 +23,7 @@ for (let i = 0; i < result.timestamp.length; i++) {
 
 	if (!price) continue
 
-	spoo[date_string] = price
+	spoo.push({d: date_string, p: price})
 	console.info(`${date_string}: ${price}`)
 }
 
