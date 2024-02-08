@@ -6,7 +6,7 @@ import {writeFileSync} from 'node:fs'
 let guild = '519749471102304258'
 let channel = '849455257472991243'
 let date_start = new Date('6/1/2021')
-let date_stop = new Date('6/3/2021')
+let date_stop = new Date()
 
 if (!env.auth) throw new Error('auth')
 
