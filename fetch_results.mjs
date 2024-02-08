@@ -25,10 +25,13 @@ while (d <= date_stop) {
 	try {
 		let response = await fetch(url, {headers: {'authorization': env.auth}})
 		let json = await response.json()
+		if (json.retry_after) {
+			await sleep(json.retry_after * 1_000)
+			continue
+		}
 		results = json.total_results
 	} catch (error) {
 		console.error(error)
-		await sleep(60_000)
 		continue
 	}
 
@@ -37,7 +40,6 @@ while (d <= date_stop) {
 	console.info(`${date_string}: ${results}`)
 
 	d = d_next
-	await sleep(2_000)
 }
 
 writeFileSync(data_file, JSON.stringify(data, undefined, 2))
