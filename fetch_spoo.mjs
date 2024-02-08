@@ -19,12 +19,14 @@ let spoo = []
 for (let i = 0; i < result.timestamp.length; i++) {
 	let date = new Date(result.timestamp[i] * 1000)
 	let price = result.indicators.quote[0].close[i]
+	let volume = result.indicators.quote[0].volume[i]
+
 
 	if (!price) continue
 
 	let date_string = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
-	spoo.push({d: date_string, p: price})
-	console.info(`${date_string}: ${price}`)
+	spoo.push({d: date_string, p: price, v: volume})
+	console.info(`${date_string}: ${price} ${volume}`)
 }
 
 writeFileSync('./spoo.json', JSON.stringify(spoo, undefined, 2))
