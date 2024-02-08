@@ -20,7 +20,9 @@ while (d <= date_stop) {
 	let min_id = date_to_snowflake(d)
 	let max_id = date_to_snowflake(d_next)
 
-	let url = `https://discord.com/api/v9/guilds/${guild}/messages/search?channel_id=${channel}&min_id=${min_id}&max_id=${max_id}&sort_by=timestamp&sort_order=asc&offset=0`
+	let url = `https://discord.com/api/v9/guilds/${guild}/messages/search?&min_id=${min_id}&max_id=${max_id}&sort_by=timestamp&sort_order=asc&offset=0`
+	if (channel) url += `&channel_id=${channel}`
+
 	let results
 	try {
 		let response = await fetch(url, {headers: {'authorization': env.auth}})
