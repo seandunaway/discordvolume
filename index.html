@@ -22,13 +22,13 @@ let option = {
 		{source: data, dimensions: ['d', 'v']},
 	],
 	series: [
-		{type: 'line', name: 'price', datasetIndex: 0, encode: {x: 'd', y: 'p'}, yAxisIndex: 0, showSymbol: false, lineStyle: {width: 5, opacity: 0.5}},
-		{type: 'bar', name: 'volume', datasetIndex: 1, encode: {x: 'd', y: 'v'}, yAxisIndex: 1, showSymbol: false},
+		{type: 'line', name: 's&p 500 price', datasetIndex: 0, encode: {x: 'd', y: 'p'}, yAxisIndex: 0, showSymbol: false, lineStyle: {width: 5, opacity: 0.5}},
+		{type: 'bar', name: 'discord message volume', datasetIndex: 1, encode: {x: 'd', y: 'v'}, yAxisIndex: 1, showSymbol: false},
 	],
 	xAxis: {type: 'time'},
 	yAxis: [
-		{name: 'price', type: 'value', min: 'dataMin', max: 'dataMax', position: 'left', splitLine: false},
-		{name: 'volume', type: 'value', min: 'dataMin', max: 'dataMax', position: 'right', splitLine: false},
+		{name: 's&p 500 price', type: 'value', min: 'dataMin', max: 'dataMax', position: 'left', splitLine: false},
+		{name: 'discord message volume', type: 'value', min: 'dataMin', max: 'dataMax', position: 'right', splitLine: false},
 	],
 	axisPointer: {show: true, snap: true, triggerEmphasis: false},
 	dataZoom: {startValue: data[0].d, endValue: data[data.length - 1].d},
