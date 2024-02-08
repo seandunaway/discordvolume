@@ -11,7 +11,7 @@ let data_file = './data.stocks-only-chat.json'
 
 if (!env.auth) throw new Error('auth')
 
-let data = {}
+let data = []
 let d = new Date(date_start)
 while (d <= date_stop) {
 	let d_next = new Date(d)
@@ -36,7 +36,7 @@ while (d <= date_stop) {
 	}
 
 	let date_string = d.toLocaleDateString()
-	data[date_string] = results
+	data.push({d: date_string, v: results})
 	console.info(`${date_string}: ${results}`)
 
 	d = d_next
