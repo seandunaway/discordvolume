@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<title>discordvolume</title>
+<style>
+body {margin: 0;}
+#echart {height: 100vh; width: 100vw;}
+</style>
+<div id='echart'></div>
+<script src='https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js'></script>
+<script type='module'>
+let search = new URLSearchParams(window.location.search)
+let data_file = search.get('file') ?? './data.json'
+
+let spoo_response = await fetch('./spoo.json')
+let spoo = await spoo_response.json()
+let data_response = await fetch(`./${data_file}`)
+let data = await data_response.json()
+
+let echart = echarts.init(document.querySelector('#echart'))
+let option = {
+	dataset: [
+		{source: spoo, dimensions: ['d', 'p']},
+		{source: data, dimensions: ['d', 'v']},
+	],
+	series: [
+		{type: 'line', name: 'price', datasetIndex: 0, encode: {x: 'd', y: 'p'}, yAxisIndex: 0, showSymbol: false, lineStyle: {width: 5, opacity: 0.5}},
+		{type: 'bar', name: 'volume', datasetIndex: 1, encode: {x: 'd', y: 'v'}, yAxisIndex: 1, showSymbol: false},
+	],
+	xAxis: {type: 'time'},
+	yAxis: [
+		{name: 'price', type: 'value', min: 'dataMin', max: 'dataMax', position: 'left', splitLine: false},
+		{name: 'volume', type: 'value', min: 'dataMin', max: 'dataMax', position: 'right', splitLine: false},
+	],
+	axisPointer: {show: true, snap: true, triggerEmphasis: false},
+	dataZoom: {startValue: data[0].d, endValue: data[data.length - 1].d},
+	grid: {show: false},
+	legend: {show: true},
+}
+
+echart.setOption(option)
+addEventListener('resize', function (event) {echart.resize()})
+</script>
