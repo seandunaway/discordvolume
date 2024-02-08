@@ -7,6 +7,7 @@ let guild = '519749471102304258'
 let channel = '849455257472991243'
 let date_start = new Date('6/1/2021')
 let date_stop = new Date()
+let data_file = './data.stocks-only-chat.json'
 
 if (!env.auth) throw new Error('auth')
 
@@ -39,7 +40,7 @@ while (d <= date_stop) {
 	await sleep(2_000)
 }
 
-writeFileSync('./data.json', JSON.stringify(data, undefined, 2))
+writeFileSync(data_file, JSON.stringify(data, undefined, 2))
 console.info('done!')
 
 // https://discord.com/developers/docs/reference#snowflakes
