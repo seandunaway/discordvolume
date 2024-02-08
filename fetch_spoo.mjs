@@ -22,7 +22,7 @@ for (let i = 0; i < result.timestamp.length; i++) {
 
 	if (!price) continue
 
-	let date_string = date.toLocaleDateString()
+	let date_string = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 	spoo.push({d: date_string, p: price})
 	console.info(`${date_string}: ${price}`)
 }

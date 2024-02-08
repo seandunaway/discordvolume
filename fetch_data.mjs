@@ -35,7 +35,7 @@ while (d <= date_stop) {
 		continue
 	}
 
-	let date_string = d.toLocaleDateString()
+	let date_string = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
 	data.push({d: date_string, v: results})
 	console.info(`${date_string}: ${results}`)
 
