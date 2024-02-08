@@ -21,7 +21,6 @@ for (let i = 0; i < result.timestamp.length; i++) {
 	let price = result.indicators.quote[0].close[i]
 	let volume = result.indicators.quote[0].volume[i]
 
-
 	if (!price) continue
 
 	let date_string = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
