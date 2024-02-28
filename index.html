@@ -8,11 +8,11 @@ body {margin: 0;}
 <script src='https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js'></script>
 <script type='module'>
 let search = new URLSearchParams(window.location.search)
-let data_file = search.get('file') ?? 'data'
+let data_file = search.get('file') ?? 'meetkevin.stocks-only-chat'
 
 let spoo_response = await fetch(`./spoo.json`)
 let spoo = await spoo_response.json()
-let data_response = await fetch(`./${data_file}.json`)
+let data_response = await fetch(`./data.${data_file}.json`)
 let data = await data_response.json()
 
 let echart = echarts.init(document.querySelector('#echart'))

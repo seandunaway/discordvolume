@@ -7,7 +7,7 @@ let guild = '519749471102304258'
 let channel = '849455257472991243'
 let date_start = new Date('6/1/2021')
 let date_stop = new Date()
-let data_file = './data.stocks-only-chat.json'
+let data_file = './data.tmp.json'
 
 if (!env.auth) throw new Error('auth')
 
