@@ -3,11 +3,11 @@
 import {env} from 'node:process'
 import {writeFileSync} from 'node:fs'
 
-let guild = '519749471102304258'
-let channel = '849455257472991243'
-let date_start = new Date('6/1/2021')
+let guild = '806986940024619039'
+let channel = ''
+let date_start = new Date('1/1/2021')
 let date_stop = new Date()
-let data_file = './data.tmp.json'
+let data_file = './data.topstep.json'
 
 if (!env.auth) throw new Error('auth')
 
