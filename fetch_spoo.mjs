@@ -4,8 +4,8 @@ import {writeFileSync} from 'node:fs'
 
 let symbol = 'ES=F'
 let interval = '1d'
-let date_start = new Date('6/1/2021')
-let date_stop = new Date('2/7/2024')
+let date_start = new Date('1/1/2018')
+let date_stop = new Date('12/31/2024')
 
 let period1 = date_start.getTime() / 1_000
 let period2 = date_stop.getTime() / 1_000
